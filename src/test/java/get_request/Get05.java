@@ -24,7 +24,7 @@ public class Get05 extends RestfulBaseUrl {
     public void get01() {
         // https://restful-booker.herokuapp.com/booking?firstname=Ali&lastname=Cengiz
         // 1. Set the URL
-        spec.pathParam("first", "booking").queryParams("firstname", "Ali", "lastname", "Cengiz");
+        spec.pathParam("first", "booking").queryParams("firstname", "Kimie", "lastname", "Jackie");
 
         // 2. Set the expected data
         // Bu casede olmadığı için geçiyoruz
@@ -36,6 +36,5 @@ public class Get05 extends RestfulBaseUrl {
         // 4. Do Assertion
         assertEquals(200, response.getStatusCode());
         assertTrue(response.asString().contains("bookingid"));
-
     }
 }

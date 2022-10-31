@@ -3,6 +3,7 @@ package get_request;
 import base_url.JsonplaceholderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -72,5 +73,33 @@ Object Mapper: Daha popüler
         assertEquals("cloudflare", response.getHeader("Server"));
         assertEquals(200, response.statusCode());
 
+    }
+
+    // Dinamik yöntem
+    @Test
+    public void get08b() {
+
+        spec.pathParams("first", "todos", "second", 2);
+
+        // Set the Expected Data ==> Payload
+        JsonPlaceHolderTestData exDataObje = new JsonPlaceHolderTestData();
+
+        Map<String, Object> exData = exDataObje.exDataMethod(1, "quis ut nam facilis et officia qui", false);
+
+        // Send the get request
+        Response response = given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
+
+        // Do Assertion
+        Map<String, Object> actualData = response.as(HashMap.class); // De Serialization
+        System.out.println("actualData = " + actualData);
+
+        assertEquals(exData.get("userId"), actualData.get("userId"));
+        assertEquals(exData.get("title"), actualData.get("title"));
+        assertEquals(exData.get("completed"), actualData.get("completed"));
+
+        assertEquals("1.1 vegur", response.getHeader("Via"));
+        assertEquals("cloudflare", response.getHeader("Server"));
+        assertEquals(200, response.statusCode());
     }
 }

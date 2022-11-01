@@ -54,18 +54,19 @@ public class Get09 extends RestfulBaseUrl {
 
         // Send the request and get the response
         Response response = given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
 
         // Do Assertion
 
-        Map<String, Object> actualData = response.as(HashMap.class);
-        assertEquals(exDataMap.get("firstname"), actualData.get("firstname"));
-        assertEquals(exDataMap.get("lastname"), actualData.get("lastname"));
-        assertEquals(exDataMap.get("totalprice"), actualData.get("totalprice"));
-        assertEquals(exDataMap.get("depositpaid"), actualData.get("depositpaid"));
+        Map<String, Object> actualDataMap = response.as(HashMap.class);
+        assertEquals(exDataMap.get("firstname"), actualDataMap.get("firstname"));
+        assertEquals(exDataMap.get("lastname"), actualDataMap.get("lastname"));
+        assertEquals(exDataMap.get("totalprice"), actualDataMap.get("totalprice"));
+        assertEquals(exDataMap.get("depositpaid"), actualDataMap.get("depositpaid"));
 
-        assertEquals(bookingdatesMap.get("checkin"), ((Map)actualData.get("bookingdates")).get("checkin"));
-        assertEquals(bookingdatesMap.get("checkout"), ((Map)actualData.get("bookingdates")).get("checkout"));
+        assertEquals(bookingdatesMap.get("checkin"), ((Map)actualDataMap.get("bookingdates")).get("checkin"));
+        assertEquals(bookingdatesMap.get("checkout"), ((Map)actualDataMap.get("bookingdates")).get("checkout"));
 
-        assertEquals(exDataMap.get("additionalneedsadditionalneeds"), actualData.get("additionalneedsadditionalneeds"));
+        assertEquals(exDataMap.get("additionalneedsadditionalneeds"), actualDataMap.get("additionalneedsadditionalneeds"));
     }
 }

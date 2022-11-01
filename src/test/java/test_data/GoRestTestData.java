@@ -6,6 +6,7 @@ import java.util.Map;
 public class GoRestTestData {
 
     public Map<String, String> dataKeyMapMethod(String name, String email, String gender, String status) {
+
         Map<String, String> dataKeyMap = new HashMap<>();
         dataKeyMap.put("name", name);
         dataKeyMap.put("email", email);
@@ -17,11 +18,11 @@ public class GoRestTestData {
 
     public Map<String, Object> exDataMethod(Object meta, Map<String, String> data) {
 
-        Map<String, Object> exDataMap = new HashMap<>();
-        exDataMap.put("meta", meta);
-        exDataMap.put("data", data);
+        Map<String, Object> olusturulanExDataMap = new HashMap<>();
+        olusturulanExDataMap.put("meta", meta);
+        olusturulanExDataMap.put("data", data);
 
-        return exDataMap;
+        return olusturulanExDataMap;
 
     }
 }

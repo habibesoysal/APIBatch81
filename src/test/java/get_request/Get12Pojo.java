@@ -14,7 +14,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class Get12Pojo extends RestfulBaseUrl {
      /*
      Given
-         https://restful-booker.herokuapp.com/booking/18
+         https://restful-booker.herokuapp.com/booking/19
      When
     I send GET Request to the URL
    Then

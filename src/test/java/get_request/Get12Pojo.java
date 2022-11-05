@@ -38,14 +38,15 @@ And
     public void get12Pojo() {
 
         // Set the URL
-        spec.pathParams("first", "booking", "second", 18);
+        spec.pathParams("first", "booking", "second", 19);
 
         // Set the expected data
         BookingDatesPojo bookingDatesObje = new BookingDatesPojo("2018-01-01", "2019-01-01");
-        BookingPojo expectedData = new BookingPojo("Dane", "Combs", 111, true, bookingDatesObje, "Breakfast");
+        BookingPojo expectedData = new BookingPojo("Guoqiang", "Liu", 111, true, bookingDatesObje, "Breakfast");
 
         // Send the request and get the response
         Response response = given().spec(spec).when().get("{first}/{second}");
+        response.prettyPrint();
 
         // Do Assertion
         BookingPojo actualData = response.as(BookingPojo.class);

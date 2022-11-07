@@ -1,15 +1,9 @@
 package pojos;
 
-public class DummyRestApiDataPojo {
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-    /*
-    {
-"employee_name": "Tom Hanks",
-"employee_salary": 111111,
-"employee_age": 23,
-"profile_image": "Perfect image"
-}
-     */
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class DummyRestApiDataPojo {
 
     private String employee_name;
     private Integer employee_salary;

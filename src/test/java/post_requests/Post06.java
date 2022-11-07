@@ -9,6 +9,7 @@ import pojos.DummyRestApiResponseBodyPojo;
 import utils.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.*;
+import static org.junit.Assert.*;
 
 public class Post06 extends DummyRestApiBaseUrl {
     /*
@@ -77,16 +78,20 @@ public class Post06 extends DummyRestApiBaseUrl {
         spec.pathParam("first", "create");
 
         // Set the expected data
-        DummyRestApiDataPojo innerMap = new DummyRestApiDataPojo("Tom Hanks", 111111, 23, "Perfect image");
-        DummyRestApiResponseBodyPojo expectedData = new DummyRestApiResponseBodyPojo("success", innerMap, "Successfully! Record has been added.");
+        DummyRestApiDataPojo expectedData = new DummyRestApiDataPojo("Tom Hanks", 111111, 23, "Perfect image");
+        System.out.println("expectedData = " + expectedData);
 
         // Send the request and get the response
-        Response response = given().spec(spec).and().body(expectedData).contentType(ContentType.JSON).when().post("{first}");
+        Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}");
         response.prettyPrint();
 
         // Do Assertion
         DummyRestApiResponseBodyPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), DummyRestApiResponseBodyPojo.class);
 
-
+        assertEquals(200,response.getStatusCode());
+        assertEquals(expectedData.getEmployee_name(), actualData.getData().getEmployee_name());
+        assertEquals(expectedData.getEmployee_salary(), actualData.getData().getEmployee_salary());
+        assertEquals(expectedData.getEmployee_age(), actualData.getData().getEmployee_age());
+        assertEquals(expectedData.getProfile_image(), actualData.getData().getProfile_image());
     }
 }

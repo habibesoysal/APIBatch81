@@ -1,14 +1,14 @@
-package base_url;
+package base_urls;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class RestfulBaseUrl {
+public class JsonplaceholderBaseUrl {
     protected RequestSpecification spec;
 
     @Before
     public void setUp() {
-        spec = new RequestSpecBuilder().setBaseUri("https://restful-booker.herokuapp.com").build();
+        spec = new RequestSpecBuilder().setBaseUri("https://jsonplaceholder.typicode.com").build();
     }
 }

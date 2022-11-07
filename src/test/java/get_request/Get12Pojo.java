@@ -1,12 +1,10 @@
 package get_request;
 
-import base_url.RestfulBaseUrl;
-import groovy.transform.stc.POJO;
+import base_urls.RestfulBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.BookingDatesPojo;
 import pojos.BookingPojo;
-import test_data.RestfulTestData;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertEquals;

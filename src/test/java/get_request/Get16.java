@@ -1,7 +1,6 @@
 package get_request;
 
 import base_urls.DummyRestApiBaseUrl;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -51,7 +50,6 @@ public class Get16 extends DummyRestApiBaseUrl {
         spec.pathParam("first", "employees");
 
         Response response = given().spec(spec).when().get("{first}");
-        response.prettyPrint();
 
         // Status code is 200
         assertEquals(200, response.getStatusCode());
@@ -68,7 +66,6 @@ public class Get16 extends DummyRestApiBaseUrl {
 
         // The name of the lowest age is "Tatyana Fitzpatrick"
         String lowestAgedEmployee = response.jsonPath().getString("data.findAll{it.employee_age==" + ages.get(0) + "}.employee_name");
-        System.out.println("lowestAgedEmployee = " + lowestAgedEmployee);
         assertEquals("[Tatyana Fitzpatrick]", lowestAgedEmployee);
 
         // Total salary of all employees is 6,644,770

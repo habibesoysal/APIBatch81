@@ -11,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
-public class Delete_01 extends JsonplaceholderBaseUrl {
+public class Delete01 extends JsonplaceholderBaseUrl {
     /*
         Given
             https://jsonplaceholder.typicode.com/todos/198

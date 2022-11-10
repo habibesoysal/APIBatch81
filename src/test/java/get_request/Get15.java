@@ -42,7 +42,7 @@ public class Get15 extends RestfulBaseUrl {
 
         // Set the expected data
         BookingDatesPojo bookingDatesObje = new BookingDatesPojo("2018-01-01", "2019-01-01");
-        BookingPojo expectedData = new BookingPojo("Raaj", "Mangukiya", 111, true, bookingDatesObje, "Breakfast");
+        BookingPojo expectedData = new BookingPojo("Raajx", "Mangukiya", 111, true, bookingDatesObje, "Breakfast");
 
         // Send the request and get the response
         Response response = given().spec(spec).when().get("{first}/{second}");

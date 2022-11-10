@@ -49,7 +49,6 @@ public class Post06 extends DummyRestApiBaseUrl {
             "employee_salary": 111111,
             "employee_age": 23,
             "profile_image": "Perfect image",
-            "id": 4891
           }
      When
         User sends POST request

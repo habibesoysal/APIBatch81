@@ -55,11 +55,8 @@ And
 
         Response response = given().spec(spec).contentType(ContentType.JSON).body(data).put("{first}/{second}");
 
+        DummyRestApiResponseBodyPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), DummyRestApiResponseBodyPojo.class);
 
-
-        DummyRestApiResponseBodyPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(),)
-
-                /*
         assertEquals(200, response.getStatusCode());
 
         assertEquals(expectedData.getStatus(), actualData.getStatus());
@@ -70,7 +67,5 @@ And
         assertEquals(expectedData.getData().getProfile_image(), actualData.getData().getProfile_image());
 
         assertEquals(expectedData.getMessage(), actualData.getMessage());
-
-                 */
     }
 }
